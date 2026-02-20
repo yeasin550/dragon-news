@@ -7,8 +7,10 @@ const Categories = () => {
     // categoryPromise.then(data => setAllCategory(data));
 
     //! other way from p-hero
-    const category = use(categoryPromise)
-    // console.log(category)
+    const category = use(categoryPromise);
+
+//   const newsName = category.map(item => (item.name));
+//     console.log(newsName)
 
     return (
         <div>

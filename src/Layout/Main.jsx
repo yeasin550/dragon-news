@@ -10,7 +10,7 @@ const Main = () => {
         <div>
             <Navbar />
 
-            <div className="flex justify-center mx-12 gap-2">
+            <div className="md:flex justify-center md:mx-12 mx-4 gap-2">
                 <div className="md:w-3/12">
                     <Categories />
                 </div>
