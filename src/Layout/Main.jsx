@@ -1,0 +1,30 @@
+
+import { Outlet } from 'react-router';
+import Navbar from '../Components/Navbar/Navbar';
+// import Footer from '../Components/Footer/Footer';
+import { LoginWith } from '../Components/LoginWith/LoginWith';
+import Categories from '../Components/Categories/Categories';
+
+const Main = () => {
+    return (
+        <div>
+            <Navbar />
+
+            <div className="flex justify-center mx-12 gap-2">
+                <div className="md:w-3/12">
+                    <Categories />
+                </div>
+                <div className="md:w-6/12">
+                    <Outlet />
+                </div>
+                <div className="md:w-3/12">
+                    <LoginWith />
+                </div>
+            </div>
+
+            {/* <Footer /> */}
+        </div>
+    );
+};
+
+export default Main;
