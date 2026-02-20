@@ -11,13 +11,13 @@ const Main = () => {
             <Navbar />
 
             <div className="md:flex justify-center md:mx-12 mx-4 gap-2">
-                <div className="md:w-3/12">
+                <div className="md:w-3/12 sticky top-0 h-fit">
                     <Categories />
                 </div>
                 <div className="md:w-6/12">
                     <Outlet />
                 </div>
-                <div className="md:w-3/12">
+                <div className="md:w-3/12 sticky top-0 h-fit">
                     <LoginWith />
                 </div>
             </div>
