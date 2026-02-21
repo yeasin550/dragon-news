@@ -6,6 +6,8 @@ import Register from "../Pages/Register/Register";
 import ContactUs from "../Pages/ContactUs/ContactUs";
 import About from "../Pages/About/About";
 import CategoriesDetails from "../Components/Categories/CategoriesDetails";
+import AuthLayout from "../Layout/AuthLayout";
+import NewsDetails from "../Pages/NewsDetails/NewsDetails";
 
 const router = createBrowserRouter([
     {
@@ -30,18 +32,28 @@ const router = createBrowserRouter([
             {
                 path: "contact",
                 Component: ContactUs
-            },
-            {
-                path: "login",
+            },   
+        ]
+    },
+    {
+        path: "/auth",
+        Component: AuthLayout,
+        children: [
+             {
+                path: "/auth/login",
                 Component: Login
             },
             {
-                path: "register",
+                path: "/auth/register",
                 Component: Register
             },
-            
-            
         ]
     },
+    {
+        path: "/news-details/:id",
+        Component: NewsDetails,
+        loader: () => fetch('/news.json')
+
+    }
 ]);
 export default router;

@@ -1,29 +1,23 @@
-import React from 'react';
-import Marquee from 'react-fast-marquee';
+
 import { NavLink } from 'react-router';
+import { use } from 'react';
+import { AuthContext } from '../../providers/AuthProviders';
 
 const Navbar = () => {
+    const { user, logOut } = use(AuthContext);
+    // console.log(user.email)
+
+    const handleLogOut = () => {
+        console.log("i am logout work")
+        logOut().then(() => {
+            alert("Log-Out Successful.")
+        }).catch((error) => {
+            console.log(error)
+        });
+    }
+
     return (
         <div>
-            <div className="space-y-4 w-6/12 mx-auto text-center my-12">
-                <div className="flex justify-center items-center">
-                    <img
-                        src="/src/assets/logo.png" alt=""
-                    />
-                </div>
-                <h1>Journalism Without Fear or Favour</h1>
-                <h1>Sunday, November 27, 2025</h1>
-            </div>
-            <div className="flex items-center gap-2 mb-12 w-10/12 mx-auto bg-gray-100 rounded-sm p-2">
-                <button className="bg-red-600 rounded-sm py-2 px-4 text-white    font-semibold">
-                    Latest
-                </button>
-                <Marquee>
-                    Match Highlights: Germany vs Spain — as it happened   !
-                    Match Highlights:     Germany vs Spain as...
-                    Lorem ipsum dolor sit consectetur
-                </Marquee>
-            </div>
 
             <div className="flex justify-between mx-10 my-2 mb-12 sticky top-0">
                 <div>            </div>
@@ -33,10 +27,15 @@ const Navbar = () => {
                     <h1>Career </h1>
                 </div>
                 <div className="flex items-center gap-4 font-semibold text-lg">
+                    {user && user.email}
                     <img className="w-8 cursor-pointer" src="/src/assets/user.png" alt="" />
-                    <NavLink to=""
-                        className="py-1.5 px-10 bg-black text-white rounded-sm font-bold">Login
-                    </NavLink>
+                    {user ?
+                        <NavLink to="auth/login" onClick={handleLogOut}
+                            className="py-1.5 px-10 bg-black text-white rounded-sm font-bold">LogOut
+                        </NavLink> :
+                        <NavLink to="auth/login"
+                            className="py-1.5 px-10 bg-black text-white rounded-sm font-bold">Login
+                        </NavLink>}
                 </div>
             </div>
         </div>
