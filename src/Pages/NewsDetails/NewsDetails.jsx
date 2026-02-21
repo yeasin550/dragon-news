@@ -22,7 +22,7 @@ const NewsDetails = () => {
             <Navbar />
             <div className="flex w-11/12 mx-auto gap-4">
                 <div className="w-9/12">
-                    {/* <NewsDetailsCard newsData={newsData} /> */}
+                    <NewsDetailsCard newsData={newsData} />
                 </div>
                 <div className="w-3/12">
 
