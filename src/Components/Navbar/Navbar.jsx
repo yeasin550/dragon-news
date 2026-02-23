@@ -30,7 +30,7 @@ const Navbar = () => {
                     {user && user.email}
                     <img className="w-8 cursor-pointer" src="/src/assets/user.png" alt="" />
                     {user ?
-                        <NavLink to="auth/login" onClick={handleLogOut}
+                        <NavLink to="" onClick={handleLogOut}
                             className="py-1.5 px-10 bg-black text-white rounded-sm font-bold">LogOut
                         </NavLink> :
                         <NavLink to="auth/login"

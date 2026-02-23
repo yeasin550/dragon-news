@@ -8,6 +8,7 @@ import About from "../Pages/About/About";
 import CategoriesDetails from "../Components/Categories/CategoriesDetails";
 import AuthLayout from "../Layout/AuthLayout";
 import NewsDetails from "../Pages/NewsDetails/NewsDetails";
+import PrivateRoute from "../providers/PrivateRotue";
 
 const router = createBrowserRouter([
     {
@@ -32,14 +33,14 @@ const router = createBrowserRouter([
             {
                 path: "contact",
                 Component: ContactUs
-            },   
+            },
         ]
     },
     {
         path: "/auth",
         Component: AuthLayout,
         children: [
-             {
+            {
                 path: "/auth/login",
                 Component: Login
             },
@@ -51,7 +52,9 @@ const router = createBrowserRouter([
     },
     {
         path: "/news-details/:id",
-        Component: NewsDetails,
+        element: <PrivateRoute>
+            <NewsDetails></NewsDetails>
+        </PrivateRoute>,
         loader: () => fetch('/news.json')
 
     }

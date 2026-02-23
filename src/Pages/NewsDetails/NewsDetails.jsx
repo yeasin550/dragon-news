@@ -14,12 +14,15 @@ const NewsDetails = () => {
     useEffect(() => {
         const filterData = data.find(news => news.id == id);
         setNewsData(filterData)
-        console.log(filterData)
+        // console.log(filterData)
     }, [data, id])
     return (
         <div>
             <Header />
+            <div className="sticky top-0 h-fit bg-[#FAF7F5]">
+
             <Navbar />
+            </div>
             <div className="flex w-11/12 mx-auto gap-4">
                 <div className="w-9/12">
                     <NewsDetailsCard newsData={newsData} />
